@@ -4,7 +4,7 @@ I’m interested in Computer Science, Cybersecurity, and Software Development.
 
 I’m currently learning Advanced Networking, Cloud Computing, and Data Engineering.
 
-I’m looking to collaborate on innovative projects that involve software development, cybersecurity, and data analysis.
+I’m looking to collaborate on innovative projects that involve software development,data science, cybersecurity, and data analysis.
 
 You can reach me at mluleki1310@gmail.com or +27 72 323 8001.
 
