@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive AI Chatbot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #121212;
+            color: white;
+        }
+        .chat-container {
+            width: 400px;
+            background: #1e1e1e;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+        }
+        .chat-box {
+            height: 350px;
+            overflow-y: auto;
+            border: 1px solid #333;
+            padding: 10px;
+            margin-bottom: 10px;
+            background: #222;
+            border-radius: 5px;
+        }
+        .message {
+            margin: 5px 0;
+            padding: 8px;
+            border-radius: 5px;
+        }
+        .user-message {
+            background: #007bff;
+            color: white;
+            text-align: right;
+        }
+        .bot-message {
+            background: #444;
+            color: white;
+            text-align: left;
+        }
+        .input-container {
+            display: flex;
+            gap: 10px;
+        }
+        .input-container input {
+            flex: 1;
+            padding: 8px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+        }
+        .input-container button {
+            padding: 8px 15px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-box" id="chat-box"></div>
+        <div class="input-container">
+            <input type="text" id="user-input" placeholder="Ask me anything...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        function sendMessage() {
+            const inputField = document.getElementById("user-input");
+            const chatBox = document.getElementById("chat-box");
+            const userMessage = inputField.value.trim();
+            
+            if (userMessage === "") return;
+            
+            const userMsgElement = document.createElement("div");
+            userMsgElement.classList.add("message", "user-message");
+            userMsgElement.textContent = "You: " + userMessage;
+            chatBox.appendChild(userMsgElement);
+            
+            setTimeout(() => {
+                const botMsgElement = document.createElement("div");
+                botMsgElement.classList.add("message", "bot-message");
+                botMsgElement.textContent = "Bot: " + generateResponse(userMessage);
+                chatBox.appendChild(botMsgElement);
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }, 500);
+            
+            inputField.value = "";
+        }
+        
+        function generateResponse(userMessage) {
+            const responses = {
+                "hello": "Hi there! How can I help you?",
+                "hey" : "hello",
+                "how are you": "I'm just a bot, but I'm doing great!",
+                "can i ask you something?" : "yes, ofcourse!",
+                "bye": "Goodbye! Have a great day!"
+            };
+            return responses[userMessage.toLowerCase()] || "I'm not sure, but I'm learning!";
+        }
+    </script>
+</body>
+</html>
