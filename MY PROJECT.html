@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mluleki S. Ngcobo – Portfolio</title>
+  <meta name="description" content="Portfolio of Mluleki Sibuzizwi Ngcobo: Computer Science postgraduate specializing in cybersecurity, IoT, and networking." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0f1a;
+      --card: #111729;
+      --muted: #9fb0d0;
+      --text: #eaf0ff;
+      --accent: #7aa2ff;
+      --accent-2: #b8ffcb;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 16px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; background: radial-gradient(1200px 600px at 80% -10%, rgba(122,162,255,.15), transparent 60%),
+                 radial-gradient(1000px 500px at -10% 10%, rgba(184,255,203,.1), transparent 50%), var(--bg);
+           color: var(--text); line-height: 1.6; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { width: min(1100px, 92vw); margin: 0 auto; }
+    header { position: sticky; top: 0; z-index: 40; backdrop-filter: blur(10px); background: rgba(11,15,26,.6); border-bottom: 1px solid rgba(255,255,255,.06); }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
+    .brand { display:flex; align-items:center; gap:12px; font-weight: 800; letter-spacing: .4px; }
+    .brand .dot { width: 10px; height: 10px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent-2)); box-shadow: 0 0 20px rgba(122,162,255,.6); }
+    nav ul { list-style: none; display: flex; gap: 18px; margin: 0; padding: 0; }
+    nav a { padding: 8px 12px; border-radius: 999px; color: var(--text); opacity: .9; }
+    nav a:hover { background: rgba(255,255,255,.06); text-decoration: none; }
+
+    .hero { display: grid; grid-template-columns: 1.2fr .8fr; align-items: center; gap: 36px; padding: 60px 0 30px; }
+    .tag { display:inline-flex; gap:8px; align-items:center; background: rgba(122,162,255,.12); border:1px solid rgba(122,162,255,.35); color: var(--accent); padding: 6px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; }
+    h1 { font-size: clamp(28px, 4vw, 46px); line-height: 1.1; margin: 14px 0 12px; }
+    .sub { color: var(--muted); font-size: clamp(14px, 2vw, 18px); }
+    .cta { margin-top: 22px; display:flex; gap:12px; flex-wrap: wrap; }
+    .btn { padding: 12px 16px; border-radius: 12px; border: 1px solid rgba(255,255,255,.12); background: linear-gradient(135deg, rgba(122,162,255,.18), rgba(184,255,203,.12)); color: var(--text); font-weight: 600; box-shadow: var(--shadow); }
+    .btn.secondary { background: transparent; }
+
+    .photo { position: relative; }
+    .photo img { width: 100%; border-radius: var(--radius); display:block; border: 1px solid rgba(255,255,255,.08); box-shadow: var(--shadow); }
+    .badge { position:absolute; bottom:-12px; left:-12px; background: #0f1526; border:1px solid rgba(255,255,255,.1); border-radius: 14px; padding:10px 14px; font-size: 12px; box-shadow: var(--shadow); }
+
+    section { padding: 60px 0; }
+    .section-title { display:flex; align-items:center; justify-content: space-between; margin-bottom: 18px; }
+    h2 { margin: 0; font-size: clamp(22px, 3vw, 34px); }
+    .grid { display:grid; grid-template-columns: repeat(12, 1fr); gap: 18px; }
+
+    /* Cards */
+    .card { grid-column: span 12; background: var(--card); border: 1px solid rgba(255,255,255,.06); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow); }
+    @media (min-width: 700px) {
+      .card.sm-6 { grid-column: span 6; }
+      .card.sm-4 { grid-column: span 4; }
+      .card.sm-8 { grid-column: span 8; }
+    }
+    .card h3 { margin: 4px 0 8px; font-size: 20px; }
+    .meta { color: var(--muted); font-size: 13px; }
+    .stack { display:flex; gap:8px; flex-wrap:wrap; margin-top: 10px; }
+    .chip { font-size: 12px; padding: 6px 10px; border-radius: 999px; border:1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.03); }
+    .thumb { width:100%; height: 170px; border-radius: 12px; object-fit: cover; border:1px solid rgba(255,255,255,.08); margin-top: 8px; }
+
+    /* About */
+    .cols { display:grid; gap: 18px; grid-template-columns: 1fr; }
+    @media (min-width: 900px) { .cols { grid-template-columns: 1.2fr .8fr; } }
+    .list { margin: 10px 0 0; padding: 0 0 0 18px; }
+    .kv { display:grid; grid-template-columns: 140px 1fr; gap: 12px; align-items: start; }
+
+    /* Contact */
+    form { display:grid; gap: 12px; }
+    input, textarea { background:#0f1526; color:var(--text); border:1px solid rgba(255,255,255,.12); border-radius: 12px; padding: 12px 14px; font: inherit; }
+    textarea { min-height: 140px; resize: vertical; }
+
+    footer { text-align:center; color: var(--muted); font-size: 13px; padding: 40px 0 60px; }
+
+    /* Mobile nav */
+    .menu { display:none; }
+    @media (max-width: 720px){
+      nav ul { display:none; position:absolute; right: 4vw; top: 56px; background: rgba(11,15,26,.95); border:1px solid rgba(255,255,255,.12); border-radius: 12px; padding:10px; }
+      nav ul.show { display:block; }
+      .menu { display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:10px; border:1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.04); }
+      .hero { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand"><span class="dot"></span> <span> Mluleki S. Ngcobo</span></div>
+      <nav>
+        <button class="menu" aria-label="Toggle menu" onclick="document.querySelector('nav ul').classList.toggle('show')">≡</button>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact & CV</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Page 1: Home (About Me) -->
+  <main id="home" class="container hero">
+    <div>
+      <span class="tag">Cybersecurity • IoT • Networking</span>
+      <h1>Hello! welcome to my profile</h1>
+      <p class="sub">I'm <strong>Mluleki S. Ngcobo</strong>, a Computer Science postgraduate (University of Zululand) focusing on cybersecurity, IoT systems, and advanced networking. I love transforming research and ideas into practical solutions.</p>
+      <div class="cta">
+        <a class="btn" href="#projects">View Projects ↓</a>
+        <a class="btn secondary" href="#contact">Get in touch</a>
+      </div>
+      <div class="stack" style="margin-top:18px">
+        <span class="chip">Java</span><span class="chip">Python</span><span class="chip">C++</span><span class="chip">SQL</span>
+        <span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">React</span>
+        <span class="chip">Docker</span><span class="chip">Git</span><span class="chip">AWS</span><span class="chip">Linux/Windows</span>
+      </div>
+    </div>
+    <div class="photo">
+      <!-- Replace src with your photo path -->
+      <img src="Images/pic.png" alt="Portrait placeholder" />
+      <div class="badge">Open to opportunities • South Africa</div>
+    </div>
+  </main>
+
+  <!-- Page 2: Projects -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-title"><h2>Projects</h2><span class="meta">Selected work & research</span></div>
+      <div class="grid">
+        <article class="card sm-6">
+          <span class="meta">Research • IoT • Edge/Fog</span>
+          <h3>IoT-based Smart Surveillance – Compression Study</h3>
+          <p>Evaluated <strong>Gzip</strong>, <strong>LZ4</strong>, and <strong>Deflate</strong> for video telemetry in smart surveillance. Measured effects on <em>latency</em>, <em>computational overhead</em>, and <em>energy consumption</em> across Edge/Fog nodes.</p>
+          <div class="stack"><span class="chip">Java</span><span class="chip">iFogSim/CloudSim</span><span class="chip">Networking</span><span class="chip">Data Engineering</span></div>
+          <img class="thumb" src="Images/IoT-platform-software.png" />
+          <p class="meta">Role: Lead Researcher • Outcome: Performance benchmarks for selecting codecs under resource constraints.</p>
+          <p><a href="#" aria-disabled="true">GitHub (https://github.com/mluleki1310/mluleki1310)</a> · <a href="#" aria-disabled="true">Paper/Report</a></p>
+        </article>
+
+        <article class="card sm-6">
+          <span class="meta">Web App • Booking</span>
+          <h3>Online Booking System – University Clinic</h3>
+          <p>Built a scheduling system to streamline student appointments, reduce manual errors, and improve clinic throughput.</p>
+          <div class="stack"><span class="chip">HTML/CSS/JS</span><span class="chip">SQL</span><span class="chip">Java</span></div>
+          <img class="thumb" src="Images/IMG_7663.jpg" alt="Booking system" />
+          <p class="meta">Role: Full‑stack dev • Outcome: Faster booking flow & reduced admin overhead.</p>
+          <p><a href="#" aria-disabled="true">Live Demo</a> · <a href="#" aria-disabled="true">GitHub</a></p>
+        </article>
+
+        <article class="card sm-6">
+          <span class="meta">Web • Recommender</span>
+          <h3>Wine Pairing Website – Hotel</h3>
+          <p>Created a site to recommend wine pairings by meal, enhancing the dining experience with simple, curated suggestions.</p>
+          <div class="stack"><span class="chip">JavaScript</span><span class="chip">React</span><span class="chip">UX</span></div>
+          <img class="thumb" src="https://images.unsplash.com/photo-1497534446932-c925b458314e?q=80&w=1600&auto=format&fit=crop" alt="Wine pairing UI" />
+          <p class="meta">Role: Front‑end dev • Outcome: Improved guest engagement with interactive UI.</p>
+          <p><a href="#" aria-disabled="true">Live Demo</a> · <a href="#" aria-disabled="true">GitHub</a></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Page 3: About -->
+  <section id="about">
+    <div class="container">
+      <div class="section-title"><h2>About</h2><span class="meta">Background • Education • Experience</span></div>
+      <div class="cols">
+        <div class="card">
+          <h3>Background</h3>
+          <p>I am a dedicated and motivated Computer Science postgraduate with a solid foundation in cybersecurity, software development, and advanced networking. I enjoy mentoring, building resilient systems, and applying research to real problems.</p>
+
+          <h3>Education</h3>
+          <div class="kv">
+            <div class="meta">MSc, Computer Science</div>
+            <div>University of Zululand — <em>in progress</em></div>
+            <div class="meta">BSc (Hons), Computer Science</div>
+            <div>University of Zululand — <em>completed</em></div>
+            <div class="meta">BSc, CS & Mathematics</div>
+            <div>University of Zululand — 2021–2023</div>
+          </div>
+
+          <h3 style="margin-top:16px">Certifications</h3>
+          <ul class="list">
+            <li>Oracle Certified Java Programmer</li>
+            <li>Intermediate Machine Learning</li>
+            <li>Pandas • SoloLearn Python • Cisco Packet Tracer</li>
+          </ul>
+
+          <h3 style="margin-top:16px">Interests & Values</h3>
+          <ul class="list">
+            <li>Cybersecurity, IoT, distributed systems</li>
+            <li>Community coding workshops & mentorship</li>
+            <li>Research-driven, impact‑focused engineering</li>
+          </ul>
+        </div>
+
+        <aside class="card">
+          <h3>Experience</h3>
+          <p><strong>IT Programming Lecturer</strong> — Richfield College <span class="meta">(Feb 2025 – now)</span><br>Delivered modules in computer literacy and Java; improved fundamentals and problem‑solving skills through labs and assessments.</p>
+          <p><strong>Computer Science Tutor</strong> — University of Zululand<br>Supported students across core CS topics; facilitated study groups and hands‑on coding sessions.</p>
+
+          <h3 style="margin-top:16px">Core Skills</h3>
+          <div class="stack">
+            <span class="chip">Java</span> <span class="chip">Python</span> <span class="chip">C++</span> <span class="chip">SQL</span>
+            <span class="chip">HTML</span> <span class="chip">CSS</span> <span class="chip">JavaScript</span> <span class="chip">React</span>
+            <span class="chip">Docker</span> <span class="chip">Git</span> <span class="chip">AWS</span> <span class="chip">Linux</span>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Page 4: Contact & CV -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-title"><h2>Contact & CV</h2><span class="meta">Hello, hope you are Great!</span></div>
+      <div class="grid">
+        <div class="card sm-8">
+          <h3>Contact Form</h3>
+          <!-- This is a static form. Replace action with your form backend (e.g., Formspree/Netlify) -->
+          <form action="#" method="post" onsubmit="event.preventDefault(); alert('Thanks, your message has been captured locally..');">
+            <input type="text" name="name" placeholder="Your name" required>
+            <input type="email" name="email" placeholder="Your email" required>
+            <textarea name="message" placeholder="Your message" required></textarea>
+            <button class="btn" type="submit">Send Message</button>
+          </form>
+        </div>
+        <div class="card sm-4">
+          <h3>Direct</h3>
+          <p><strong>Email:</strong> <a href="mailto:Mluleki1310@gmail.com">Mluleki1310@gmail.com</a><br>
+             <strong>Phone:</strong> <a href="tel:+27723238001">+27 72 323 8001</a></p>
+          <p><strong>LinkedIn:</strong> <a href="http://linkedin.com/in/mluleki-ngcobo-2901ab301">http://linkedin.com/in/mluleki-ngcobo-2901ab301</a><br>
+             <strong>GitHub:</strong> <a href="https://github.com/mluleki1310/mluleki1310">https://github.com/mluleki1310/mluleki1310</a></p>
+          <h3>Download CV</h3>
+          <p>
+            <!-- If you host this HTML and the PDF together, keep the file name the same or update the href -->
+            <a class="btn" href="PDF/Curriculum Vitae of mluleki ngcobo 2025.pdf" download>Download CV (PDF)</a>
+          </p>
+          <p class="meta" href="PDF/Curriculum Vitae of mluleki ngcobo 2025.pdf"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="year"></span> Mluleki S. Ngcobo • Built with HTML/CSS • Johannesburg Time
+  </footer>
+
+  <script>
+    // Update year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
